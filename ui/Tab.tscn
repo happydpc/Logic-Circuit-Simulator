@@ -1,16 +1,12 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://ui/Tab.gd" type="Script" id=1]
-[ext_resource path="res://gates/and.tscn" type="PackedScene" id=2]
-[ext_resource path="res://gates/or.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Screenshot 2021-06-28 174739.png" type="Texture" id=4]
+[ext_resource path="res://gates/gate.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/Font.tres" type="DynamicFont" id=5]
 [ext_resource path="res://assets/themes/grabber.tres" type="StyleBox" id=6]
 [ext_resource path="res://assets/themes/grabber_hl.tres" type="StyleBox" id=7]
 [ext_resource path="res://assets/themes/grabber_pressed.tres" type="StyleBox" id=8]
-[ext_resource path="res://gates/var.tscn" type="PackedScene" id=9]
-[ext_resource path="res://gates/xor.tscn" type="PackedScene" id=10]
-[ext_resource path="res://gates/not.tscn" type="PackedScene" id=11]
+[ext_resource path="res://gates/calculators/var.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 5 )
@@ -48,30 +44,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Screenshot 2021-06-28 174739" type="Sprite" parent="."]
-visible = false
-position = Vector2( 1437.72, 594.825 )
-texture = ExtResource( 4 )
-
-[node name="NOT" parent="." instance=ExtResource( 11 )]
-
-[node name="NOT2" parent="." instance=ExtResource( 11 )]
-
-[node name="AND" parent="." instance=ExtResource( 2 )]
-
-[node name="AND2" parent="." instance=ExtResource( 2 )]
-
 [node name="var" parent="." instance=ExtResource( 9 )]
 margin_bottom = 70.0
 
 [node name="var2" parent="." instance=ExtResource( 9 )]
 margin_bottom = 70.0
 
-[node name="XOR" parent="." instance=ExtResource( 10 )]
+[node name="Gate" parent="." instance=ExtResource( 2 )]
 
-[node name="XOR2" parent="." instance=ExtResource( 10 )]
-
-[node name="OR" parent="." instance=ExtResource( 3 )]
+[node name="Gate2" parent="." instance=ExtResource( 2 )]
 [connection signal="connection_request" from="." to="." method="_on_Tab_connection_request"]
 [connection signal="disconnection_request" from="." to="." method="_on_Tab_disconnection_request"]
 [connection signal="node_selected" from="." to="." method="_on_Tab_node_selected"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Screenshot 2021-06-28 174739.png" type="Texture" id=1]
 [ext_resource path="res://ui/RightTab.gd" type="Script" id=2]
@@ -6,7 +6,7 @@
 [ext_resource path="res://assets/Icons/new/truth_table.png" type="Texture" id=4]
 [ext_resource path="res://assets/Icons/new/folder.png" type="Texture" id=5]
 [ext_resource path="res://assets/Icons/new/store.png" type="Texture" id=6]
-[ext_resource path="res://assets/font/Inconsolata-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://assets/font/Montserrat-Regular.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://assets/themes/button_disabled.tres" type="StyleBox" id=8]
 [ext_resource path="res://assets/themes/button_normal.tres" type="StyleBox" id=9]
 [ext_resource path="res://assets/Icons/new/off.png" type="Texture" id=10]
@@ -43,7 +43,7 @@ bg_color = Color( 0.6, 0.6, 0.6, 0 )
 [sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.129412, 0.145098, 0.168627, 1 )
 
-[sub_resource type="StyleBoxFlat" id=24]
+[sub_resource type="StyleBoxFlat" id=6]
 content_margin_left = 0.0
 content_margin_right = 30.0
 bg_color = Color( 0.2, 0.219608, 0.258824, 1 )
@@ -61,29 +61,32 @@ content_margin_top = 5.0
 content_margin_bottom = 5.0
 bg_color = Color( 0.156863, 0.172549, 0.203922, 1 )
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFontData" id=9]
+font_path = "res://assets/font/Inconsolata-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=10]
 size = 18
 use_filter = true
-font_data = ExtResource( 7 )
+font_data = SubResource( 9 )
 
-[sub_resource type="StyleBoxFlat" id=10]
+[sub_resource type="StyleBoxFlat" id=11]
 content_margin_left = 0.0
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
-[sub_resource type="StyleBoxFlat" id=11]
+[sub_resource type="StyleBoxFlat" id=12]
 content_margin_right = 65.0
 bg_color = Color( 0.386169, 0.386169, 0.445313, 1 )
 border_width_bottom = 1
 border_color = Color( 0.756863, 0.772549, 0.796078, 1 )
 
-[sub_resource type="StyleBoxFlat" id=12]
+[sub_resource type="StyleBoxFlat" id=13]
 content_margin_right = 65.0
 bg_color = Color( 0.160784, 0.176471, 0.2, 1 )
 border_width_bottom = 1
 border_color = Color( 0.439216, 0.501961, 0.537255, 1 )
 corner_detail = 20
 
-[sub_resource type="StyleBoxFlat" id=13]
+[sub_resource type="StyleBoxFlat" id=14]
 content_margin_right = 65.0
 bg_color = Color( 0.172549, 0.164706, 0.196078, 1 )
 border_width_left = 2
@@ -97,46 +100,46 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[sub_resource type="StyleBoxFlat" id=14]
+[sub_resource type="StyleBoxFlat" id=15]
 content_margin_left = 65.0
 bg_color = Color( 0.386169, 0.386169, 0.445313, 1 )
 border_width_bottom = 1
 border_color = Color( 0.756863, 0.772549, 0.796078, 1 )
 
-[sub_resource type="StyleBoxFlat" id=15]
+[sub_resource type="StyleBoxFlat" id=16]
 content_margin_right = 65.0
 bg_color = Color( 0.160784, 0.176471, 0.2, 1 )
 border_width_bottom = 1
 border_color = Color( 0.439216, 0.501961, 0.537255, 1 )
 corner_detail = 20
 
-[sub_resource type="StyleBoxFlat" id=16]
-content_margin_left = 0.0
-bg_color = Color( 0.2, 0.219608, 0.258824, 1 )
-
 [sub_resource type="StyleBoxFlat" id=17]
 content_margin_left = 0.0
 bg_color = Color( 0.2, 0.219608, 0.258824, 1 )
 
 [sub_resource type="StyleBoxFlat" id=18]
+content_margin_left = 0.0
+bg_color = Color( 0.2, 0.219608, 0.258824, 1 )
+
+[sub_resource type="StyleBoxFlat" id=19]
 content_margin_left = 25.0
 content_margin_right = 25.0
 bg_color = Color( 0.156863, 0.172549, 0.203922, 1 )
 
-[sub_resource type="StyleBoxFlat" id=19]
+[sub_resource type="StyleBoxFlat" id=20]
 content_margin_left = 15.0
 content_margin_right = 15.0
 bg_color = Color( 0.129412, 0.145098, 0.168627, 1 )
 
-[sub_resource type="StyleBoxFlat" id=20]
+[sub_resource type="StyleBoxFlat" id=21]
 bg_color = Color( 0.156863, 0.172549, 0.203922, 1 )
 
-[sub_resource type="StyleBoxFlat" id=21]
+[sub_resource type="StyleBoxFlat" id=22]
 bg_color = Color( 0.317647, 0.333333, 0.356863, 1 )
 
-[sub_resource type="StyleBoxFlat" id=22]
-
 [sub_resource type="StyleBoxFlat" id=23]
+
+[sub_resource type="StyleBoxFlat" id=24]
 draw_center = false
 border_width_bottom = 2
 border_color = Color( 0.439216, 0.501961, 0.537255, 1 )
@@ -258,7 +261,7 @@ anchor_bottom = -0.000491743
 margin_top = 0.424866
 margin_right = 330.0
 margin_bottom = 38.4249
-custom_styles/normal = SubResource( 24 )
+custom_styles/normal = SubResource( 6 )
 custom_fonts/font = SubResource( 7 )
 custom_constants/line_spacing = 0
 text = "properties"
@@ -275,7 +278,7 @@ margin_right = 330.0
 margin_bottom = 67.0
 focus_mode = 1
 custom_styles/normal = SubResource( 8 )
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0.756863, 0.772549, 0.796078, 1 )
 clear_button_enabled = true
 placeholder_text = "Object Name"
@@ -302,11 +305,10 @@ margin_bottom = 30.0
 rect_pivot_offset = Vector2( -746.893, 95.2158 )
 
 [node name="Label" type="Label" parent="TabSelection/Tabs/Inspector/Id"]
-margin_top = -1.0
 margin_right = 150.0
-margin_bottom = 29.0
+margin_bottom = 30.0
 rect_min_size = Vector2( 150, 30 )
-custom_styles/normal = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
 text = "Id  :"
 valign = 1
 
@@ -327,11 +329,10 @@ margin_bottom = 63.0
 rect_pivot_offset = Vector2( -746.893, 95.2158 )
 
 [node name="Label" type="Label" parent="TabSelection/Tabs/Inspector/Type"]
-margin_top = -1.0
 margin_right = 150.0
-margin_bottom = 29.0
+margin_bottom = 30.0
 rect_min_size = Vector2( 150, 30 )
-custom_styles/normal = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
 text = "Type  :"
 valign = 1
 
@@ -354,9 +355,9 @@ rect_pivot_offset = Vector2( -746.893, 95.2158 )
 [node name="Label" type="Label" parent="TabSelection/Tabs/Inspector/Value"]
 margin_top = 6.0
 margin_right = 150.0
-margin_bottom = 26.0
+margin_bottom = 27.0
 rect_min_size = Vector2( 150, 20 )
-custom_styles/normal = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
 text = "Value :"
 valign = 1
 
@@ -370,11 +371,11 @@ custom_icons/off = ExtResource( 10 )
 custom_icons/on_disabled = ExtResource( 13 )
 custom_icons/on = ExtResource( 11 )
 custom_icons/off_disabled = ExtResource( 14 )
-custom_styles/hover = SubResource( 11 )
-custom_styles/pressed = SubResource( 12 )
-custom_styles/disabled = SubResource( 13 )
-custom_styles/hover_pressed = SubResource( 14 )
-custom_styles/normal = SubResource( 15 )
+custom_styles/hover = SubResource( 12 )
+custom_styles/pressed = SubResource( 13 )
+custom_styles/disabled = SubResource( 14 )
+custom_styles/hover_pressed = SubResource( 15 )
+custom_styles/normal = SubResource( 16 )
 enabled_focus_mode = 0
 
 [node name="Interval" type="HBoxContainer" parent="TabSelection/Tabs/Inspector"]
@@ -384,11 +385,10 @@ margin_bottom = 132.0
 rect_pivot_offset = Vector2( -746.893, 95.2158 )
 
 [node name="Label" type="Label" parent="TabSelection/Tabs/Inspector/Interval"]
-margin_top = -1.0
 margin_right = 150.0
-margin_bottom = 29.0
+margin_bottom = 30.0
 rect_min_size = Vector2( 150, 30 )
-custom_styles/normal = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
 text = "Interval :"
 valign = 1
 
@@ -412,11 +412,10 @@ margin_bottom = 165.0
 rect_pivot_offset = Vector2( -746.893, 95.2158 )
 
 [node name="Label" type="Label" parent="TabSelection/Tabs/Inspector/Position_x"]
-margin_top = -1.0
 margin_right = 150.0
-margin_bottom = 29.0
+margin_bottom = 30.0
 rect_min_size = Vector2( 150, 30 )
-custom_styles/normal = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
 text = "Position :"
 valign = 1
 
@@ -425,7 +424,7 @@ margin_left = 154.0
 margin_right = 184.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 30, 30 )
-custom_styles/normal = SubResource( 16 )
+custom_styles/normal = SubResource( 17 )
 text = "x"
 align = 1
 valign = 1
@@ -448,11 +447,10 @@ margin_bottom = 198.0
 rect_pivot_offset = Vector2( -746.893, 95.2158 )
 
 [node name="Label" type="Label" parent="TabSelection/Tabs/Inspector/Position_y"]
-margin_top = -1.0
 margin_right = 150.0
-margin_bottom = 29.0
+margin_bottom = 30.0
 rect_min_size = Vector2( 150, 30 )
-custom_styles/normal = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
 valign = 1
 
 [node name="property" type="Label" parent="TabSelection/Tabs/Inspector/Position_y"]
@@ -460,7 +458,7 @@ margin_left = 154.0
 margin_right = 184.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 30, 30 )
-custom_styles/normal = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
 text = "y"
 align = 1
 valign = 1
@@ -483,11 +481,10 @@ margin_bottom = 231.0
 rect_pivot_offset = Vector2( -746.893, 95.2158 )
 
 [node name="Label" type="Label" parent="TabSelection/Tabs/Inspector/Rotation"]
-margin_top = -1.0
 margin_right = 150.0
-margin_bottom = 29.0
+margin_bottom = 30.0
 rect_min_size = Vector2( 150, 30 )
-custom_styles/normal = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
 text = "Rotation :"
 valign = 1
 
@@ -510,37 +507,36 @@ selected = 0
 [node name="TabContainer" type="TabContainer" parent="TabSelection/Tabs/Inspector"]
 margin_top = 234.0
 margin_right = 321.0
-margin_bottom = 562.0
+margin_bottom = 565.0
 rect_min_size = Vector2( 315, 0 )
 rect_clip_content = true
-custom_styles/tab_fg = SubResource( 18 )
-custom_styles/tab_bg = SubResource( 19 )
-custom_styles/panel = SubResource( 20 )
+custom_styles/tab_fg = SubResource( 19 )
+custom_styles/tab_bg = SubResource( 20 )
+custom_styles/panel = SubResource( 21 )
 
 [node name="Input" type="Tabs" parent="TabSelection/Tabs/Inspector/TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 30.0
+margin_top = 31.0
 rect_min_size = Vector2( 0, 300 )
 
 [node name="Output" type="Tabs" parent="TabSelection/Tabs/Inspector/TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 30.0
+margin_top = 31.0
 
 [node name="Source" type="HBoxContainer" parent="TabSelection/Tabs/Inspector"]
-margin_top = 565.0
+margin_top = 568.0
 margin_right = 321.0
-margin_bottom = 595.0
+margin_bottom = 598.0
 rect_pivot_offset = Vector2( -746.893, 95.2158 )
 
 [node name="Label" type="Label" parent="TabSelection/Tabs/Inspector/Source"]
-margin_top = -1.0
 margin_right = 150.0
-margin_bottom = 29.0
+margin_bottom = 30.0
 rect_min_size = Vector2( 150, 30 )
-custom_styles/normal = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
 text = "Source :"
 valign = 1
 
@@ -550,9 +546,9 @@ margin_right = 304.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 150, 25 )
 focus_mode = 0
-custom_styles/hover = SubResource( 21 )
-custom_styles/pressed = SubResource( 22 )
-custom_styles/normal = SubResource( 23 )
+custom_styles/hover = SubResource( 22 )
+custom_styles/pressed = SubResource( 23 )
+custom_styles/normal = SubResource( 24 )
 enabled_focus_mode = 0
 text = "package_manager://"
 clip_text = true

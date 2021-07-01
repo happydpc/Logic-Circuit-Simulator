@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://ScriptLanguage.gd" type="Script" id=1]
+[ext_resource path="res://ui/ScriptLanguage.gd" type="Script" id=1]
 [ext_resource path="res://ui/Tab.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ui/RightTab.tscn" type="PackedScene" id=3]
-[ext_resource path="res://TabContainer.gd" type="Script" id=4]
+[ext_resource path="res://ui/TabContainer.gd" type="Script" id=4]
 [ext_resource path="res://ui/BottomTab.tscn" type="PackedScene" id=5]
 [ext_resource path="res://ui/Topbar.tscn" type="PackedScene" id=6]
 
@@ -108,19 +108,19 @@ __meta__ = {
 }
 
 [node name="New Tab" parent="TabContainer" instance=ExtResource( 2 )]
-margin_top = 34.0
+margin_top = 37.0
 
 [node name="New Tab2" parent="TabContainer" instance=ExtResource( 2 )]
 visible = false
-margin_top = 34.0
+margin_top = 37.0
 
 [node name="New Tab3" parent="TabContainer" instance=ExtResource( 2 )]
 visible = false
-margin_top = 34.0
+margin_top = 37.0
 
 [node name="+" parent="TabContainer" instance=ExtResource( 2 )]
 visible = false
-margin_top = 34.0
+margin_top = 37.0
 
 [node name="RightTab" parent="." instance=ExtResource( 3 )]
 
