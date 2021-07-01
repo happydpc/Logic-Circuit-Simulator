@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Screenshot 2021-06-28 174739.png" type="Texture" id=1]
 [ext_resource path="res://ui/RightTab.gd" type="Script" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://assets/Icons/new/off_disabled.png" type="Texture" id=14]
 [ext_resource path="res://assets/themes/button_pressed.tres" type="StyleBox" id=15]
 [ext_resource path="res://assets/themes/button_hover.tres" type="StyleBox" id=16]
+[ext_resource path="res://ui/Inspector.gd" type="Script" id=17]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.2, 0.219608, 0.258824, 1 )
@@ -56,7 +57,7 @@ extra_spacing_char = 2
 font_data = ExtResource( 7 )
 
 [sub_resource type="StyleBoxFlat" id=8]
-content_margin_left = 24.0
+content_margin_left = 12.0
 content_margin_top = 5.0
 content_margin_bottom = 5.0
 bg_color = Color( 0.156863, 0.172549, 0.203922, 1 )
@@ -272,10 +273,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ObjectName" type="LineEdit" parent="TabSelection/Tabs"]
-margin_top = 37.0
-margin_right = 330.0
-margin_bottom = 67.0
+[node name="Inspector" type="VBoxContainer" parent="TabSelection/Tabs"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -156.0
+margin_top = 38.0
+margin_right = 165.0
+margin_bottom = 854.0
+custom_constants/separation = 3
+script = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ObjectName" type="LineEdit" parent="TabSelection/Tabs/Inspector"]
+margin_right = 321.0
+margin_bottom = 30.0
 focus_mode = 1
 custom_styles/normal = SubResource( 8 )
 custom_fonts/font = SubResource( 10 )
@@ -287,21 +300,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Inspector" type="VBoxContainer" parent="TabSelection/Tabs"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -156.5
-margin_top = 80.0
-margin_right = 164.5
-margin_bottom = 854.0
-custom_constants/separation = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Id" type="HBoxContainer" parent="TabSelection/Tabs/Inspector"]
+margin_top = 33.0
 margin_right = 321.0
-margin_bottom = 30.0
+margin_bottom = 63.0
 rect_pivot_offset = Vector2( -746.893, 95.2158 )
 
 [node name="Label" type="Label" parent="TabSelection/Tabs/Inspector/Id"]
@@ -323,9 +325,9 @@ align = 1
 valign = 1
 
 [node name="Type" type="HBoxContainer" parent="TabSelection/Tabs/Inspector"]
-margin_top = 33.0
+margin_top = 66.0
 margin_right = 321.0
-margin_bottom = 63.0
+margin_bottom = 96.0
 rect_pivot_offset = Vector2( -746.893, 95.2158 )
 
 [node name="Label" type="Label" parent="TabSelection/Tabs/Inspector/Type"]
@@ -347,9 +349,9 @@ align = 1
 valign = 1
 
 [node name="Value" type="HBoxContainer" parent="TabSelection/Tabs/Inspector"]
-margin_top = 66.0
+margin_top = 99.0
 margin_right = 321.0
-margin_bottom = 99.0
+margin_bottom = 132.0
 rect_pivot_offset = Vector2( -746.893, 95.2158 )
 
 [node name="Label" type="Label" parent="TabSelection/Tabs/Inspector/Value"]
@@ -379,9 +381,9 @@ custom_styles/normal = SubResource( 16 )
 enabled_focus_mode = 0
 
 [node name="Interval" type="HBoxContainer" parent="TabSelection/Tabs/Inspector"]
-margin_top = 102.0
+margin_top = 135.0
 margin_right = 321.0
-margin_bottom = 132.0
+margin_bottom = 165.0
 rect_pivot_offset = Vector2( -746.893, 95.2158 )
 
 [node name="Label" type="Label" parent="TabSelection/Tabs/Inspector/Interval"]
@@ -406,9 +408,9 @@ placeholder_text = "Clock Interval"
 caret_blink = true
 
 [node name="Position_x" type="HBoxContainer" parent="TabSelection/Tabs/Inspector"]
-margin_top = 135.0
+margin_top = 168.0
 margin_right = 321.0
-margin_bottom = 165.0
+margin_bottom = 198.0
 rect_pivot_offset = Vector2( -746.893, 95.2158 )
 
 [node name="Label" type="Label" parent="TabSelection/Tabs/Inspector/Position_x"]
@@ -441,9 +443,9 @@ align = 1
 caret_blink = true
 
 [node name="Position_y" type="HBoxContainer" parent="TabSelection/Tabs/Inspector"]
-margin_top = 168.0
+margin_top = 201.0
 margin_right = 321.0
-margin_bottom = 198.0
+margin_bottom = 231.0
 rect_pivot_offset = Vector2( -746.893, 95.2158 )
 
 [node name="Label" type="Label" parent="TabSelection/Tabs/Inspector/Position_y"]
@@ -475,9 +477,9 @@ align = 1
 caret_blink = true
 
 [node name="Rotation" type="HBoxContainer" parent="TabSelection/Tabs/Inspector"]
-margin_top = 201.0
+margin_top = 234.0
 margin_right = 321.0
-margin_bottom = 231.0
+margin_bottom = 264.0
 rect_pivot_offset = Vector2( -746.893, 95.2158 )
 
 [node name="Label" type="Label" parent="TabSelection/Tabs/Inspector/Rotation"]
@@ -505,9 +507,9 @@ items = [ "Right", null, false, 0, null, "Down", null, false, 1, null, "Up", nul
 selected = 0
 
 [node name="TabContainer" type="TabContainer" parent="TabSelection/Tabs/Inspector"]
-margin_top = 234.0
+margin_top = 267.0
 margin_right = 321.0
-margin_bottom = 565.0
+margin_bottom = 598.0
 rect_min_size = Vector2( 315, 0 )
 rect_clip_content = true
 custom_styles/tab_fg = SubResource( 19 )
@@ -527,9 +529,9 @@ anchor_bottom = 1.0
 margin_top = 31.0
 
 [node name="Source" type="HBoxContainer" parent="TabSelection/Tabs/Inspector"]
-margin_top = 568.0
+margin_top = 601.0
 margin_right = 321.0
-margin_bottom = 598.0
+margin_bottom = 631.0
 rect_pivot_offset = Vector2( -746.893, 95.2158 )
 
 [node name="Label" type="Label" parent="TabSelection/Tabs/Inspector/Source"]
@@ -552,3 +554,11 @@ custom_styles/normal = SubResource( 24 )
 enabled_focus_mode = 0
 text = "package_manager://"
 clip_text = true
+
+[node name="Timer" type="Timer" parent="TabSelection/Tabs/Inspector"]
+wait_time = 0.25
+[connection signal="text_entered" from="TabSelection/Tabs/Inspector/ObjectName" to="TabSelection/Tabs/Inspector" method="_on_ObjectName_text_entered"]
+[connection signal="toggled" from="TabSelection/Tabs/Inspector/Value/Value" to="TabSelection/Tabs/Inspector" method="_on_Value_toggled"]
+[connection signal="text_entered" from="TabSelection/Tabs/Inspector/Position_x/Value" to="TabSelection/Tabs/Inspector" method="_on_Position_text_entered"]
+[connection signal="text_entered" from="TabSelection/Tabs/Inspector/Position_y/Value" to="TabSelection/Tabs/Inspector" method="_on_Position_text_entered"]
+[connection signal="timeout" from="TabSelection/Tabs/Inspector/Timer" to="TabSelection/Tabs/Inspector" method="_on_refresh"]

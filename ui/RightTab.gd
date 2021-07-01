@@ -22,3 +22,5 @@ func show_ui():
 		get_node("Tabs").visible=false
 		get_node("../../TabContainer").margin_right=-60
 	
+
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://ui/ScriptLanguage.gd" type="Script" id=1]
 [ext_resource path="res://ui/Tab.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://ui/TabContainer.gd" type="Script" id=4]
 [ext_resource path="res://ui/BottomTab.tscn" type="PackedScene" id=5]
 [ext_resource path="res://ui/Topbar.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/FontSmall.tres" type="DynamicFont" id=7]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.105882, 0.0941176, 0.129412, 1 )
@@ -99,6 +100,7 @@ custom_styles/tab_fg = SubResource( 2 )
 custom_styles/tab_disabled = SubResource( 3 )
 custom_styles/tab_bg = SubResource( 4 )
 custom_styles/panel = SubResource( 5 )
+custom_fonts/font = ExtResource( 7 )
 custom_constants/side_margin = 350
 tab_align = 0
 drag_to_rearrange_enabled = true
@@ -108,19 +110,22 @@ __meta__ = {
 }
 
 [node name="New Tab" parent="TabContainer" instance=ExtResource( 2 )]
-margin_top = 37.0
+margin_top = 34.0
+scroll_offset = Vector2( 0, -34 )
 
 [node name="New Tab2" parent="TabContainer" instance=ExtResource( 2 )]
 visible = false
-margin_top = 37.0
+margin_top = 34.0
 
 [node name="New Tab3" parent="TabContainer" instance=ExtResource( 2 )]
 visible = false
-margin_top = 37.0
+margin_top = 34.0
 
-[node name="+" parent="TabContainer" instance=ExtResource( 2 )]
+[node name="+" type="Control" parent="TabContainer"]
 visible = false
-margin_top = 37.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 34.0
 
 [node name="RightTab" parent="." instance=ExtResource( 3 )]
 

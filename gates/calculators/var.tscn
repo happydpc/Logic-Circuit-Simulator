@@ -7,7 +7,7 @@
 [ext_resource path="res://assets/font/Montserrat-Bold.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://gates/calculators/var.gd" type="Script" id=6]
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.156863, 0.172549, 0.203922, 1 )
 border_width_left = 6
 border_width_top = 20
@@ -19,7 +19,7 @@ corner_radius_bottom_right = 13
 corner_radius_bottom_left = 12
 corner_detail = 20
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.156863, 0.172549, 0.203922, 1 )
 border_width_left = 6
 border_width_top = 20
@@ -31,19 +31,19 @@ corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 corner_detail = 20
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=3]
 outline_color = Color( 0.156863, 0.172549, 0.203922, 1 )
 use_filter = true
 font_data = ExtResource( 5 )
 
-[sub_resource type="StyleBoxFlat" id=7]
+[sub_resource type="StyleBoxFlat" id=4]
 content_margin_right = 26.0
 bg_color = Color( 0.317647, 0.333333, 0.356863, 1 )
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id=8]
+[sub_resource type="StyleBoxFlat" id=5]
 content_margin_left = 0.0
 content_margin_right = 26.0
 bg_color = Color( 0.317647, 0.333333, 0.356863, 1 )
@@ -51,7 +51,7 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=6]
 content_margin_right = 26.0
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
@@ -60,9 +60,9 @@ margin_right = 100.0
 margin_bottom = 64.0
 mouse_filter = 1
 custom_icons/port = ExtResource( 1 )
-custom_styles/frame = SubResource( 4 )
-custom_styles/selectedframe = SubResource( 5 )
-custom_fonts/title_font = SubResource( 6 )
+custom_styles/frame = SubResource( 1 )
+custom_styles/selectedframe = SubResource( 2 )
+custom_fonts/title_font = SubResource( 3 )
 custom_colors/title_color = Color( 0.156863, 0.172549, 0.203922, 1 )
 custom_constants/separation = 0
 title = "var"
@@ -88,10 +88,10 @@ custom_icons/off = ExtResource( 2 )
 custom_icons/on_disabled = ExtResource( 4 )
 custom_icons/on = ExtResource( 3 )
 custom_icons/off_disabled = ExtResource( 4 )
-custom_styles/hover = SubResource( 7 )
-custom_styles/hover_pressed = SubResource( 8 )
-custom_styles/normal = SubResource( 3 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/hover_pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
 enabled_focus_mode = 0
 align = 1
 expand_icon = true
-[connection signal="toggled" from="CheckButton" to="." method="_on_CheckButton_toggled"]
+[connection signal="toggled" from="CheckButton" to="." method="set_value"]

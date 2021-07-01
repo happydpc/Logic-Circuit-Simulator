@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/Icons/new/port.png" type="Texture" id=1]
-[ext_resource path="res://gates/calculators/xnor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gates/gate.gd" type="Script" id=3]
 [ext_resource path="res://assets/gates/gate_default.tres" type="StyleBox" id=5]
 
@@ -69,10 +68,6 @@ margin_right = 105.0
 margin_bottom = 62.0
 rect_min_size = Vector2( 0, 20 )
 mouse_filter = 1
-
-[node name="xnor" parent="GateControl" instance=ExtResource( 2 )]
-margin_top = -36.0
-margin_bottom = 54.0
 
 [node name="Control4" type="Control" parent="."]
 margin_left = 15.0

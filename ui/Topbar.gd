@@ -1,4 +1,5 @@
 extends Control
+var saved:=false
 var data = {}
 var time=0
 func _ready():
@@ -23,7 +24,10 @@ func _notification(what):
 		data_file.open("res://data.json", File.WRITE)
 		data_file.store_string(to_json(data))
 		data_file.close()
-		OS.alert("Some files are not saved", "Alert!")
-		get_tree().quit()
+		if saved:
+			get_tree().quit()
+		else:
+			OS.alert("There are some unsaved changes on "+". Press exit again to leave without saving.", "Warning!")
+			saved=true
 
 	
