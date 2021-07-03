@@ -22,7 +22,6 @@ config/icon="res://icon.png"
 [autoload]
 
 GateConstructor="*res://singleton/gate_constructor.gd"
-Dragdrop="*res://singleton/dragdrop.gd"
 
 [display]
 

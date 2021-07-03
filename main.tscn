@@ -92,8 +92,8 @@ margin_bottom = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 1.0
-margin_right = -60.0
-margin_bottom = -21.0
+margin_right = -62.0
+margin_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 custom_styles/tab_fg = SubResource( 2 )
@@ -111,7 +111,6 @@ __meta__ = {
 
 [node name="New Tab" parent="TabContainer" instance=ExtResource( 2 )]
 margin_top = 34.0
-scroll_offset = Vector2( 0, -34 )
 
 [node name="New Tab2" parent="TabContainer" instance=ExtResource( 2 )]
 visible = false
@@ -131,10 +130,13 @@ margin_top = 34.0
 
 [node name="BottomTab" parent="." instance=ExtResource( 5 )]
 
-[node name="Panel" type="Control" parent="."]
-anchor_top = 1.0
+[node name="Code" type="MarginContainer" parent="."]
 anchor_bottom = 1.0
-margin_top = -378.0
-margin_right = 327.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit" type="TextEdit" parent="Code"]
+margin_bottom = 900.0
 [connection signal="text_entered" from="LineEdit" to="LineEdit" method="_on_LineEdit_text_entered"]
 [connection signal="tab_selected" from="TabContainer" to="TabContainer" method="_on_TabContainer_tab_selected"]
