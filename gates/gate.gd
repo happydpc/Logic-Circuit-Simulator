@@ -6,14 +6,16 @@ var is_selected:=false
 var legs:=0
 #gate updates the output
 #Place gates under GateControl with (0,-36)
-func _ready():
+func _ready() -> void:
 	self.clear_all_slots()
 	gate_type=get_node("GateControl").get_child(0).name.to_upper()
 	resize_legs(2)
 
 #Whenever an input changes the gate is called to calculate
-func calculate():
+func calculate() -> void:
+	
 	var array=[]
+
 	for i in range(self.get_connection_input_count()):
 		array.append(self.get_connection_input_color(i)==Color("#faf9a7"))
 	var result = self.get_node("GateControl").get_child(0).run(array)

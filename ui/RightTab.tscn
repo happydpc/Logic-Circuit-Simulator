@@ -525,6 +525,7 @@ clip_text = true
 
 [node name="Timer" type="Timer" parent="TabSelection/Tabs/Inspector"]
 wait_time = 0.25
+
 [connection signal="text_entered" from="TabSelection/Tabs/Inspector/ObjectName" to="TabSelection/Tabs/Inspector" method="_on_ObjectName_text_entered"]
 [connection signal="toggled" from="TabSelection/Tabs/Inspector/Value/Value" to="TabSelection/Tabs/Inspector" method="_on_Value_toggled"]
 [connection signal="text_entered" from="TabSelection/Tabs/Inspector/Position_x/Value" to="TabSelection/Tabs/Inspector" method="_on_Position_text_entered"]

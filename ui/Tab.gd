@@ -12,11 +12,8 @@ func _ready():
 	
 	self.add_child(GateConstructor.setup_gate("VAR"))
 	self.add_child(GateConstructor.setup_gate("AND"))
-	self.add_child(GateConstructor.setup_gate("AND"))
-	self.add_child(GateConstructor.setup_gate("VAR"))
 	self.add_child(GateConstructor.setup_gate("NOT"))
-	self.add_child(GateConstructor.setup_gate("NOR"))
-	self.add_child(GateConstructor.setup_gate("XOR"))
+	self.add_child(GateConstructor.setup_gate("VAR"))
 	
 func _process(_delta):
 	
@@ -90,9 +87,20 @@ func _on_Tab_connection_request(from, from_port, to, to_port):
 	
 
 func _on_Tab_disconnection_request(from, from_port, to, to_port):
-	print("disconnecting",from,to)
+	#set_slot(idx: int, enable_left: bool, type_left: int, color_left: Color,
+	# enable_right: bool, type_right: int, color_right: Color, custom_left: Texture = null, custom_right: Texture = null)
+
+	var slot := port_to_slot(to,to_port,true)
+	print("slot = ",slot)
+	var object := self.get_node(to)
+	object.set_slot(slot,object.is_slot_enabled_left(slot),0,Color.white,
+	object.is_slot_enabled_right(slot),0,object.get_slot_color_right(slot))
+	
 	self.disconnect_node(from, from_port, to, to_port)
+	
 	get_node(to).calculate()
+	
+	
 func _on_Tab_copy_nodes_request():
 	clipboard=selected_units.duplicate(true)
 
@@ -127,3 +135,18 @@ func push_value(from:String,port:int):
 					port_num+=1
 			
 
+func port_to_slot(from : String,port : int, is_left : bool) -> int :
+	var object :=  self.get_node(from)
+	var index := 0 
+	for i in range(object.get_child_count()): 
+	
+		if (is_left and object.is_slot_enabled_left(i)) or (!is_left and object.is_slot_enabled_right(i)):
+			index+=1
+			
+		if index == port:
+			print("port to slot = ",port,i)
+			return i
+		
+	print("port to slot = error")
+	
+	return -1

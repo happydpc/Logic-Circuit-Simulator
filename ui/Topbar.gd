@@ -29,5 +29,3 @@ func _notification(what):
 		else:
 			OS.alert("There are some unsaved changes on "+". Press exit again to leave without saving.", "Warning!")
 			saved=true
-
-	

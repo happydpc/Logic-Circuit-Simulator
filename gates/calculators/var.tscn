@@ -94,4 +94,5 @@ custom_styles/normal = SubResource( 6 )
 enabled_focus_mode = 0
 align = 1
 expand_icon = true
+
 [connection signal="toggled" from="CheckButton" to="." method="set_value"]
