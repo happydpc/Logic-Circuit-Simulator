@@ -14,15 +14,10 @@ func _ready() -> void:
 	self.get_zoom_hbox().set_anchors_and_margins_preset(Control.PRESET_TOP_RIGHT)
 	self.get_zoom_hbox().rect_position-=Vector2(30,-10)
 	
-	self.add_child(GateConstructor.setup_gate("VAR"))
-	self.add_child(GateConstructor.setup_gate("AND"))
-	self.add_child(GateConstructor.setup_gate("NOT"))
-	self.add_child(GateConstructor.setup_gate("VAR"))
-	
 # Change scroll effect to zoom
 func _process(_delta):
 	if get_global_mouse_position().x in range(self.rect_global_position.x,self.rect_global_position.x+self.rect_size.x) and \
-	get_global_mouse_position().y in range(self.rect_global_position.y,self.rect_global_position.y+self.rect_size.y):
+	get_global_mouse_position().y in range(self.rect_global_position.y,self.rect_global_position.y+self.rect_size.y) and $CreateNew.visible==false:
 		var vector = (get_local_mouse_position()+scroll_offset)/zoom
 		get_tree().get_root().get_node("main").get_node("BottomTab/HBoxContainer/Cursor").text="("+str(float(int(vector.x*10000))/10000)+", "+str(float(int(vector.y*10000))/10000)+")"
 		
@@ -184,3 +179,15 @@ func port_to_slot(from : String, port : int, is_left : bool) -> int :
 					return i
 				else:	index+=1
 	return -1
+
+
+func _on_Tab_popup_request(position):
+	$CreateNew.rect_position= get_global_mouse_position()
+	$CreateNew.popup()
+
+
+func _on_ItemList_item_activated(index : int) -> void:
+	var node = GateConstructor.setup_gate(get_node("CreateNew/VBoxContainer/ItemList").get_item_text(index).split(" ")[0],($CreateNew.rect_position+scroll_offset)/zoom)
+	self.add_child(node)
+	$CreateNew.visible=false
+	$CreateNew/VBoxContainer/ItemList.unselect_all()
