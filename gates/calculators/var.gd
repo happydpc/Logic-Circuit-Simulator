@@ -4,8 +4,9 @@ const gate_type = "VAR"
 var id:=0
 var tag:=""
 
-func calculate() -> void:
+func calculate() -> bool:
 	set_value(get_node("CheckButton").pressed)
+	return self.get_node("CheckButton").pressed
 
 func set_value(button_pressed:bool) -> void:
 	print(self.name," := ", str(button_pressed).to_lower(),";")

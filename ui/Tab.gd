@@ -88,8 +88,6 @@ func _on_Tab_connection_request(from, from_port, to, to_port) -> void:
 	var _s1 = self.connect_node(from, from_port, to, to_port)
 	push_value(from,from_port)
 	
-
-
 func _on_Tab_disconnection_request(from, from_port, to, to_port) -> void:
 	var command = from
 	if from_port!=0 :
@@ -124,21 +122,34 @@ func _on_Tab_copy_nodes_request() -> void:
 	command += ";"
 	print(command)
 	clipboard=selected_units.duplicate(true)
+	print("copy ",selected_units,";")
 
 func _on_Tab_paste_nodes_request() -> void :
 	for iter in selected_units.keys():
 		_on_Tab_node_unselected(selected_units[iter])
 	print("*;")
-	var node
 	for iter in clipboard.keys():
-		node = GateConstructor.setup_gate(clipboard[iter].gate_type,clipboard[iter].offset+Vector2(40,40))
+		var node = GateConstructor.setup_gate(clipboard[iter].gate_type,clipboard[iter].offset+Vector2(40,40))
 		self.add_child(node)
-		_on_Tab_node_selected(node)
+		selected_units[node.name]=node
 		set_selected(node)
-	clipboard=selected_units.duplicate(true)
+		emit_signal("node_selected",node)
+	print("paste ",clipboard," as ",selected_units,";")
 
+func _on_Tab_delete_nodes_request():
+	$DeleteConfirm.dialog_text="Confirm delete request of "+str(selected_units.size())+" items."
+	$DeleteConfirm.popup()
 
-
+func _on_DeleteConfirm_confirmed():	
+	print("del ",selected_units,";")
+	get_node("../../RightTab/TabSelection/Tabs/Inspector").reset_node()
+	for unit in selected_units:
+		for iter in get_connection_list():	
+			if iter.from==unit or iter.to==unit:
+				self._on_Tab_disconnection_request(iter.from, iter.from_port, iter.to, iter.to_port)
+		get_node(unit).queue_free()
+	selected_units.clear()
+	
 func push_value(from : String,port : int) -> void:
 	for iter in get_connection_list():
 		if iter["from"]==from and iter["from_port"]==port:
@@ -173,4 +184,3 @@ func port_to_slot(from : String, port : int, is_left : bool) -> int :
 					return i
 				else:	index+=1
 	return -1
-

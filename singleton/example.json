@@ -1,5 +1,5 @@
-[
-  {
+{
+  "header": {
     "name": "filename",
     "type": "PREFAB",
     "prefab_info": {
@@ -7,20 +7,62 @@
       "output": 2
     }
   },
-  {
+  "import": {
     "mux": {
       "path_type": "local",
       "path": "C://temp/mux.json"
     },
     "ram": {
       "path_type": "packgage_manager",
-      "path": "https://www.packagemanager.com"
+      "path": "23sd586cxzasaacb"
     }
   },
-  {
-    "location": null
+  "table": {
+    "var1": {
+      "type": "VAR",
+      "position": "(24.15,-140)",
+      "value": true
+    },
+    "not0": {
+      "type": "NOT",
+      "position": "(24.15,-140)"
+    },
+    "and1": {
+      "type": "AND",
+      "position": "(24.15,-140)",
+      "legs": 2
+    }
   },
-  {
-    "connections": null
-  }
-]
+  "connections": [
+    {
+      "from": "header",
+      "from_port": 0,
+      "to": "not0",
+      "to_port": 0
+    },
+    {
+      "from": "header",
+      "from_port": 1,
+      "to": "and1",
+      "to_port": 0
+    },
+    {
+      "from": "not0",
+      "from_port": 0,
+      "to": "and1",
+      "to_port": 1
+    },
+    {
+      "from": "and1",
+      "from_port": 0,
+      "to": "header",
+      "to_port": 0
+    },
+    {
+      "from": "var1",
+      "from_port": 0,
+      "to": "header",
+      "to_port": 1
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/themes/button_normal.tres" type="StyleBox" id=1]
 [ext_resource path="res://ui/Tab.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/themes/button_disabled.tres" type="StyleBox" id=8]
 [ext_resource path="res://assets/themes/button_hover.tres" type="StyleBox" id=9]
 [ext_resource path="res://assets/themes/button_pressed.tres" type="StyleBox" id=10]
+[ext_resource path="res://assets/themes/window_theme.tres" type="Theme" id=11]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 40.0
@@ -45,26 +46,6 @@ border_width_right = 1
 border_color = Color( 0.129412, 0.145098, 0.168627, 1 )
 
 [sub_resource type="StyleBoxEmpty" id=4]
-
-[sub_resource type="StyleBoxFlat" id=5]
-bg_color = Color( 0.156863, 0.172549, 0.203922, 1 )
-border_width_top = 25
-border_color = Color( 1, 1, 1, 1 )
-corner_detail = 20
-expand_margin_top = 20.0
-
-[sub_resource type="Theme" id=6]
-Dialogs/constants/button_margin = 32
-Dialogs/constants/margin = 8
-WindowDialog/colors/title_color = Color( 0, 0, 0, 1 )
-WindowDialog/constants/close_h_ofs = 18
-WindowDialog/constants/close_v_ofs = 18
-WindowDialog/constants/scaleborder_size = 4
-WindowDialog/constants/title_height = 20
-WindowDialog/fonts/title_font = null
-WindowDialog/icons/close = null
-WindowDialog/icons/close_highlight = null
-WindowDialog/styles/panel = SubResource( 5 )
 
 [node name="main" type="CanvasLayer"]
 
@@ -140,7 +121,7 @@ margin_left = -155.0
 margin_top = -81.0
 margin_right = 156.0
 margin_bottom = 75.0
-theme = SubResource( 6 )
+theme = ExtResource( 11 )
 popup_exclusive = true
 window_title = "New Tab"
 dialog_text = "Choose a scene type"
@@ -153,24 +134,25 @@ __meta__ = {
 margin_left = 8.0
 margin_top = 29.0
 margin_right = 303.0
-margin_bottom = 113.0
+margin_bottom = 117.0
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LineEdit" type="LineEdit" parent="AcceptDialog/VBoxContainer"]
+margin_top = 2.0
 margin_right = 295.0
-margin_bottom = 22.0
+margin_bottom = 24.0
 custom_styles/normal = ExtResource( 1 )
 clear_button_enabled = true
 placeholder_text = "Tab Name"
 caret_blink = true
 
 [node name="OptionButton" type="OptionButton" parent="AcceptDialog/VBoxContainer"]
-margin_top = 26.0
+margin_top = 28.0
 margin_right = 295.0
-margin_bottom = 48.0
+margin_bottom = 50.0
 custom_styles/hover = ExtResource( 9 )
 custom_styles/pressed = ExtResource( 10 )
 custom_styles/disabled = ExtResource( 8 )
@@ -183,9 +165,9 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="AcceptDialog/VBoxContainer"]
-margin_top = 52.0
+margin_top = 54.0
 margin_right = 295.0
-margin_bottom = 83.0
+margin_bottom = 85.0
 
 [node name="InputText" type="Label" parent="AcceptDialog/VBoxContainer/HBoxContainer"]
 margin_top = 5.0
