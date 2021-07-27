@@ -14,7 +14,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Logic- Circuit- Simulator"
+config/name="Logic Engine"
 run/main_scene="res://main.tscn"
 config/icon="res://icon.png"
 

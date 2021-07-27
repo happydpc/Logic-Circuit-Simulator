@@ -1,4 +1,4 @@
 extends Panel
 
 func run(array : Array) -> bool:
-	return !array[0] if array.size()>0 else false
+	return !array[0] if !array.empty() else false

@@ -15,11 +15,10 @@ var gates={
 	"XNOR": preload("res://gates/calculators/xnor.tscn")
 }
 func _ready():
-	print("GateConstructor is loaded")
+	print("ready @GateConstructor")
 	randomize()
 
-func setup_gate(gate_type:String):
-	print("Setup : ",gate_type)
+func setup_gate(gate_type:String, offset : Vector2 = Vector2(0,0)):
 	var node
 	if gate_type=="VAR" or gate_type=="Clock" or gate_type=="Label" or gate_type=="Output":
 		node=gates[gate_type].instance()
@@ -32,4 +31,6 @@ func setup_gate(gate_type:String):
 		gate.rect_position.y=-36
 	node.id=int(str(OS.get_unix_time()%10000)+str(randi()%10000))
 	node.name = gate_type.to_lower()+str(node.id)
+	print("new ",node.name," = ",gate_type.to_lower(),offset,";")	
+	node.offset=offset
 	return node

@@ -40,7 +40,6 @@ func _on_Tab_node_selected(node) -> void:
 	inspector.set_node(node)
 	if !selected_units.has(node.name):
 		selected_units[node.name]=node
-		node.is_selected=true
 		node.modulate.a=0.5
 
 		get_tree().get_root().get_node("main").get_node("BottomTab/HBoxContainer/Selection").visible=true
@@ -62,7 +61,6 @@ func _on_Tab_node_selected(node) -> void:
 		get_tree().get_root().get_node("main").get_node("BottomTab/HBoxContainer/IconSelection").hint_tooltip=detailed_text
 		
 func _on_Tab_node_unselected(node) -> void:
-	node.is_selected=false
 	node.modulate.a=1
 	if selected_units.has(node.name):
 		var _s1 = selected_units.erase(node.name)
@@ -75,20 +73,31 @@ func _on_Tab_node_unselected(node) -> void:
 		get_tree().get_root().get_node("main").get_node("BottomTab/HBoxContainer/IconSelection").visible=false
 		get_tree().get_root().get_node("main").get_node("BottomTab/HBoxContainer/VSeparatorSelection").visible=false
 
-
-func _on_Tab_connection_request(from, from_port, to, to_port):
-	print(from,"(",from_port,") -> ", to,"(",to_port,")")
-	print("connecting : ",from," ",from_port," to ",to," ",to_port)
+func _on_Tab_connection_request(from, from_port, to, to_port) -> void:
+	var command = from
+	if from_port!=0 :
+		command+="["+str(from_port)+"]"
+	command+=" -> "+to
+	if to_port!=0:
+		command+="["+str(to_port)+"]"
+	print(command+";")
+	
 	for iter in self.get_connection_list():
 		if iter.to == to and iter.to_port == to_port:
 			return
 	var _s1 = self.connect_node(from, from_port, to, to_port)
-
 	push_value(from,from_port)
 	
 
+
 func _on_Tab_disconnection_request(from, from_port, to, to_port) -> void:
-	print(from,"(",from_port,") x ", to,"(",to_port,")")	
+	var command = from
+	if from_port!=0 :
+		command+="["+str(from_port)+"]"
+	command+=" -: "+to
+	if to_port!=0:
+		command+="["+str(to_port)+"]"
+	print(command+";")
 	
 	var slot := port_to_slot(to,to_port,true)
 	if slot==-1:
@@ -101,19 +110,34 @@ func _on_Tab_disconnection_request(from, from_port, to, to_port) -> void:
 	
 	self.disconnect_node(from, from_port, to, to_port)
 	
-	
 func _on_Tab_copy_nodes_request() -> void:
+	if selected_units.size()==0:
+		return
+	var command = "new * ="
+	if selected_units.size()>1:
+		command+="["
+		for iter in selected_units:
+			command+=iter+", "
+		command = command.rstrip(", ")
+		command+="]"
+	else:	command+= selected_units.keys()[0]
+	command += ";"
+	print(command)
 	clipboard=selected_units.duplicate(true)
 
 func _on_Tab_paste_nodes_request() -> void :
+	for iter in selected_units.keys():
+		_on_Tab_node_unselected(selected_units[iter])
+	print("*;")
 	var node
 	for iter in clipboard.keys():
-		node = GateConstructor.setup_gate(clipboard[iter].gate_type)
+		node = GateConstructor.setup_gate(clipboard[iter].gate_type,clipboard[iter].offset+Vector2(40,40))
 		self.add_child(node)
-		node.offset=clipboard[iter].offset+Vector2(40,40)
-		_on_Tab_node_unselected(selected_units[iter])
 		_on_Tab_node_selected(node)
+		set_selected(node)
 	clipboard=selected_units.duplicate(true)
+
+
 
 func push_value(from : String,port : int) -> void:
 	for iter in get_connection_list():
@@ -121,10 +145,16 @@ func push_value(from : String,port : int) -> void:
 			var slot := port_to_slot(iter.to,iter.to_port,true)
 			if slot ==-1:
 				return
-			
 			get_node(iter.to).set_slot(slot,get_node(iter.to).is_slot_enabled_left(slot),0,get_node(from).get_connection_output_color(port),
 			get_node(iter.to).is_slot_enabled_right(slot),0,get_node(iter.to).get_slot_color_right(slot))
-			get_node(iter.to).calculate()
+			
+			var command = from
+			if port!=0 :
+				command+="["+str(port)+"]"
+			command+=" -> "+iter.to
+			if iter.to_port!=0:
+				command+="["+str(iter.to_port)+"]"
+			print("\t└ ",command, ":= ",str(get_node(iter.to).calculate()).to_lower())
 
 func port_to_slot(from : String, port : int, is_left : bool) -> int :
 	var object :=  self.get_node(from)
@@ -134,18 +164,13 @@ func port_to_slot(from : String, port : int, is_left : bool) -> int :
 		for i in range(object.get_child_count()): 
 			if object.is_slot_enabled_left(i):
 				if index==port:
-					print("port_to_slot(",from,"-",port,") -> ",i)
 					return i
-				else:
-					index+=1
+				else:	index+=1
 	else:
 		for i in range(object.get_child_count()): 
 			if object.is_slot_enabled_right(i):
 				if index==port:
-					print("port_to_slot(",from,"-",port,") -> ",i)
 					return i
-				else:
-					index+=1
-	
-	print("port_to_slot(",from,"-",port,") -> false")	
+				else:	index+=1
 	return -1
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Screenshot 2021-06-28 174739.png" type="Texture" id=1]
 [ext_resource path="res://ui/RightTab.gd" type="Script" id=2]
@@ -9,11 +9,9 @@
 [ext_resource path="res://assets/font/Montserrat-Regular.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://assets/themes/button_disabled.tres" type="StyleBox" id=8]
 [ext_resource path="res://assets/themes/button_normal.tres" type="StyleBox" id=9]
-[ext_resource path="res://assets/Icons/new/off.png" type="Texture" id=10]
-[ext_resource path="res://assets/Icons/new/on.png" type="Texture" id=11]
+[ext_resource path="res://assets/themes/button_pressed.tres" type="StyleBox" id=10]
+[ext_resource path="res://assets/themes/VectorProperty.tres" type="StyleBox" id=11]
 [ext_resource path="res://assets/Icons/new/search.png" type="Texture" id=12]
-[ext_resource path="res://assets/Icons/new/on_disabled.png" type="Texture" id=13]
-[ext_resource path="res://assets/Icons/new/off_disabled.png" type="Texture" id=14]
 [ext_resource path="res://ui/Inspector.gd" type="Script" id=17]
 
 [sub_resource type="StyleBoxFlat" id=1]
@@ -73,72 +71,15 @@ content_margin_left = 0.0
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
 [sub_resource type="StyleBoxFlat" id=12]
-content_margin_right = 65.0
-bg_color = Color( 0.386169, 0.386169, 0.445313, 1 )
-border_width_bottom = 1
-border_color = Color( 0.756863, 0.772549, 0.796078, 1 )
+content_margin_left = 0.0
+bg_color = Color( 0.2, 0.219608, 0.258824, 1 )
 
 [sub_resource type="StyleBoxFlat" id=13]
-content_margin_right = 65.0
-bg_color = Color( 0.160784, 0.176471, 0.2, 1 )
-border_width_bottom = 1
-border_color = Color( 0.439216, 0.501961, 0.537255, 1 )
-corner_detail = 20
-
-[sub_resource type="StyleBoxFlat" id=14]
-content_margin_right = 65.0
-bg_color = Color( 0.172549, 0.164706, 0.196078, 1 )
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color( 0.133333, 0.12549, 0.14902, 1 )
-border_blend = true
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-
-[sub_resource type="StyleBoxFlat" id=15]
-content_margin_left = 65.0
-bg_color = Color( 0.386169, 0.386169, 0.445313, 1 )
-border_width_bottom = 1
-border_color = Color( 0.756863, 0.772549, 0.796078, 1 )
-
-[sub_resource type="StyleBoxFlat" id=16]
-content_margin_right = 65.0
-bg_color = Color( 0.160784, 0.176471, 0.2, 1 )
-border_width_bottom = 1
-border_color = Color( 0.439216, 0.501961, 0.537255, 1 )
-corner_detail = 20
-
-[sub_resource type="StyleBoxFlat" id=17]
-content_margin_left = 0.0
-bg_color = Color( 0.2, 0.219608, 0.258824, 1 )
-
-[sub_resource type="StyleBoxFlat" id=18]
-content_margin_left = 0.0
-bg_color = Color( 0.2, 0.219608, 0.258824, 1 )
-
-[sub_resource type="StyleBoxFlat" id=19]
-content_margin_left = 25.0
-content_margin_right = 25.0
-bg_color = Color( 0.156863, 0.172549, 0.203922, 1 )
-
-[sub_resource type="StyleBoxFlat" id=20]
-content_margin_left = 15.0
-content_margin_right = 15.0
-bg_color = Color( 0.129412, 0.145098, 0.168627, 1 )
-
-[sub_resource type="StyleBoxFlat" id=21]
-bg_color = Color( 0.156863, 0.172549, 0.203922, 1 )
-
-[sub_resource type="StyleBoxFlat" id=22]
 bg_color = Color( 0.317647, 0.333333, 0.356863, 1 )
 
-[sub_resource type="StyleBoxFlat" id=23]
+[sub_resource type="StyleBoxFlat" id=14]
 
-[sub_resource type="StyleBoxFlat" id=24]
+[sub_resource type="StyleBoxFlat" id=15]
 draw_center = false
 border_width_bottom = 2
 border_color = Color( 0.439216, 0.501961, 0.537255, 1 )
@@ -274,9 +215,9 @@ __meta__ = {
 [node name="Inspector" type="VBoxContainer" parent="TabSelection/Tabs"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -156.0
+margin_left = -164.0
 margin_top = 38.0
-margin_right = 165.0
+margin_right = 161.0
 margin_bottom = 854.0
 custom_constants/separation = 3
 script = ExtResource( 17 )
@@ -285,7 +226,7 @@ __meta__ = {
 }
 
 [node name="ObjectName" type="LineEdit" parent="TabSelection/Tabs/Inspector"]
-margin_right = 321.0
+margin_right = 325.0
 margin_bottom = 30.0
 focus_mode = 1
 custom_styles/normal = SubResource( 8 )
@@ -300,12 +241,14 @@ __meta__ = {
 
 [node name="Id" type="HBoxContainer" parent="TabSelection/Tabs/Inspector"]
 margin_top = 33.0
-margin_right = 321.0
+margin_right = 325.0
 margin_bottom = 63.0
 rect_pivot_offset = Vector2( -746.893, 95.2158 )
+alignment = 1
 
 [node name="Label" type="Label" parent="TabSelection/Tabs/Inspector/Id"]
-margin_right = 150.0
+margin_left = 10.0
+margin_right = 160.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 150, 30 )
 custom_styles/normal = SubResource( 11 )
@@ -313,9 +256,9 @@ text = "Id  :"
 valign = 1
 
 [node name="Value" type="Label" parent="TabSelection/Tabs/Inspector/Id"]
-margin_left = 154.0
+margin_left = 164.0
 margin_top = 2.0
-margin_right = 304.0
+margin_right = 314.0
 margin_bottom = 27.0
 rect_min_size = Vector2( 150, 25 )
 text = "1764866"
@@ -324,12 +267,14 @@ valign = 1
 
 [node name="Type" type="HBoxContainer" parent="TabSelection/Tabs/Inspector"]
 margin_top = 66.0
-margin_right = 321.0
+margin_right = 325.0
 margin_bottom = 96.0
 rect_pivot_offset = Vector2( -746.893, 95.2158 )
+alignment = 1
 
 [node name="Label" type="Label" parent="TabSelection/Tabs/Inspector/Type"]
-margin_right = 150.0
+margin_left = 10.0
+margin_right = 160.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 150, 30 )
 custom_styles/normal = SubResource( 11 )
@@ -337,9 +282,9 @@ text = "Type  :"
 valign = 1
 
 [node name="Value" type="Label" parent="TabSelection/Tabs/Inspector/Type"]
-margin_left = 154.0
+margin_left = 164.0
 margin_top = 2.0
-margin_right = 304.0
+margin_right = 314.0
 margin_bottom = 27.0
 rect_min_size = Vector2( 150, 25 )
 text = "AND"
@@ -348,44 +293,44 @@ valign = 1
 
 [node name="Value" type="HBoxContainer" parent="TabSelection/Tabs/Inspector"]
 margin_top = 99.0
-margin_right = 321.0
-margin_bottom = 132.0
+margin_right = 325.0
+margin_bottom = 124.0
 rect_pivot_offset = Vector2( -746.893, 95.2158 )
+alignment = 1
 
 [node name="Label" type="Label" parent="TabSelection/Tabs/Inspector/Value"]
-margin_top = 6.0
-margin_right = 150.0
-margin_bottom = 27.0
+margin_left = 10.0
+margin_top = 2.0
+margin_right = 160.0
+margin_bottom = 23.0
 rect_min_size = Vector2( 150, 20 )
 custom_styles/normal = SubResource( 11 )
 text = "Value :"
 valign = 1
 
-[node name="Value" type="CheckButton" parent="TabSelection/Tabs/Inspector/Value"]
-margin_left = 154.0
-margin_right = 304.0
-margin_bottom = 33.0
-rect_min_size = Vector2( 150, 20 )
+[node name="Value" type="Button" parent="TabSelection/Tabs/Inspector/Value"]
+margin_left = 164.0
+margin_right = 314.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 150, 25 )
 focus_mode = 0
-custom_icons/off = ExtResource( 10 )
-custom_icons/on_disabled = ExtResource( 13 )
-custom_icons/on = ExtResource( 11 )
-custom_icons/off_disabled = ExtResource( 14 )
-custom_styles/hover = SubResource( 12 )
-custom_styles/pressed = SubResource( 13 )
-custom_styles/disabled = SubResource( 14 )
-custom_styles/hover_pressed = SubResource( 15 )
-custom_styles/normal = SubResource( 16 )
+custom_styles/hover = ExtResource( 10 )
+custom_styles/pressed = ExtResource( 10 )
+custom_styles/disabled = ExtResource( 8 )
+custom_styles/normal = ExtResource( 9 )
+toggle_mode = true
 enabled_focus_mode = 0
 
 [node name="Interval" type="HBoxContainer" parent="TabSelection/Tabs/Inspector"]
-margin_top = 135.0
-margin_right = 321.0
-margin_bottom = 165.0
+margin_top = 127.0
+margin_right = 325.0
+margin_bottom = 157.0
 rect_pivot_offset = Vector2( -746.893, 95.2158 )
+alignment = 1
 
 [node name="Label" type="Label" parent="TabSelection/Tabs/Inspector/Interval"]
-margin_right = 150.0
+margin_left = 10.0
+margin_right = 160.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 150, 30 )
 custom_styles/normal = SubResource( 11 )
@@ -393,8 +338,8 @@ text = "Interval :"
 valign = 1
 
 [node name="Value" type="LineEdit" parent="TabSelection/Tabs/Inspector/Interval"]
-margin_left = 154.0
-margin_right = 304.0
+margin_left = 164.0
+margin_right = 314.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 150, 25 )
 focus_mode = 1
@@ -405,14 +350,45 @@ max_length = 5
 placeholder_text = "Clock Interval"
 caret_blink = true
 
-[node name="Position_x" type="HBoxContainer" parent="TabSelection/Tabs/Inspector"]
-margin_top = 168.0
-margin_right = 321.0
-margin_bottom = 198.0
+[node name="Legs" type="HBoxContainer" parent="TabSelection/Tabs/Inspector"]
+margin_top = 160.0
+margin_right = 325.0
+margin_bottom = 190.0
 rect_pivot_offset = Vector2( -746.893, 95.2158 )
+alignment = 1
+
+[node name="Label" type="Label" parent="TabSelection/Tabs/Inspector/Legs"]
+margin_left = 10.0
+margin_right = 160.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 150, 30 )
+custom_styles/normal = SubResource( 11 )
+text = "Legs : "
+valign = 1
+
+[node name="Value" type="LineEdit" parent="TabSelection/Tabs/Inspector/Legs"]
+margin_left = 164.0
+margin_right = 314.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 150, 25 )
+focus_mode = 1
+custom_styles/read_only = ExtResource( 8 )
+custom_styles/normal = ExtResource( 9 )
+align = 1
+max_length = 2
+placeholder_text = "0"
+caret_blink = true
+
+[node name="Position_x" type="HBoxContainer" parent="TabSelection/Tabs/Inspector"]
+margin_top = 193.0
+margin_right = 325.0
+margin_bottom = 223.0
+rect_pivot_offset = Vector2( -746.893, 95.2158 )
+alignment = 1
 
 [node name="Label" type="Label" parent="TabSelection/Tabs/Inspector/Position_x"]
-margin_right = 150.0
+margin_left = 11.0
+margin_right = 161.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 150, 30 )
 custom_styles/normal = SubResource( 11 )
@@ -420,18 +396,18 @@ text = "Position :"
 valign = 1
 
 [node name="property" type="Label" parent="TabSelection/Tabs/Inspector/Position_x"]
-margin_left = 154.0
-margin_right = 184.0
+margin_left = 165.0
+margin_right = 195.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 30, 30 )
-custom_styles/normal = SubResource( 17 )
+custom_styles/normal = ExtResource( 11 )
 text = "x"
 align = 1
 valign = 1
 
 [node name="Value" type="LineEdit" parent="TabSelection/Tabs/Inspector/Position_x"]
-margin_left = 188.0
-margin_right = 303.0
+margin_left = 199.0
+margin_right = 314.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 115, 25 )
 focus_mode = 1
@@ -441,31 +417,33 @@ align = 1
 caret_blink = true
 
 [node name="Position_y" type="HBoxContainer" parent="TabSelection/Tabs/Inspector"]
-margin_top = 201.0
-margin_right = 321.0
-margin_bottom = 231.0
+margin_top = 226.0
+margin_right = 325.0
+margin_bottom = 256.0
 rect_pivot_offset = Vector2( -746.893, 95.2158 )
+alignment = 1
 
 [node name="Label" type="Label" parent="TabSelection/Tabs/Inspector/Position_y"]
-margin_right = 150.0
+margin_left = 11.0
+margin_right = 161.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 150, 30 )
 custom_styles/normal = SubResource( 11 )
 valign = 1
 
 [node name="property" type="Label" parent="TabSelection/Tabs/Inspector/Position_y"]
-margin_left = 154.0
-margin_right = 184.0
+margin_left = 165.0
+margin_right = 195.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 30, 30 )
-custom_styles/normal = SubResource( 18 )
+custom_styles/normal = SubResource( 12 )
 text = "y"
 align = 1
 valign = 1
 
 [node name="Value" type="LineEdit" parent="TabSelection/Tabs/Inspector/Position_y"]
-margin_left = 188.0
-margin_right = 303.0
+margin_left = 199.0
+margin_right = 314.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 115, 25 )
 focus_mode = 1
@@ -474,36 +452,64 @@ custom_styles/normal = ExtResource( 9 )
 align = 1
 caret_blink = true
 
-[node name="TabContainer" type="TabContainer" parent="TabSelection/Tabs/Inspector"]
-margin_top = 234.0
-margin_right = 321.0
-margin_bottom = 565.0
-rect_min_size = Vector2( 315, 0 )
-rect_clip_content = true
-custom_styles/tab_fg = SubResource( 19 )
-custom_styles/tab_bg = SubResource( 20 )
-custom_styles/panel = SubResource( 21 )
+[node name="IO" type="HBoxContainer" parent="TabSelection/Tabs/Inspector"]
+margin_top = 259.0
+margin_right = 325.0
+margin_bottom = 521.0
+alignment = 1
 
-[node name="Input" type="Tabs" parent="TabSelection/Tabs/Inspector/TabContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 31.0
-rect_min_size = Vector2( 0, 300 )
+[node name="List" type="VBoxContainer" parent="TabSelection/Tabs/Inspector/IO"]
+margin_left = 10.0
+margin_right = 315.0
+margin_bottom = 262.0
+rect_min_size = Vector2( 305, 0 )
 
-[node name="Output" type="Tabs" parent="TabSelection/Tabs/Inspector/TabContainer"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 31.0
+[node name="Input" type="Label" parent="TabSelection/Tabs/Inspector/IO/List"]
+margin_right = 305.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 25 )
+text = "Inputs"
+valign = 1
+
+[node name="InputList" type="ScrollContainer" parent="TabSelection/Tabs/Inspector/IO/List"]
+margin_top = 29.0
+margin_right = 305.0
+margin_bottom = 129.0
+rect_min_size = Vector2( 0, 100 )
+scroll_horizontal_enabled = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabSelection/Tabs/Inspector/IO/List/InputList"]
+
+[node name="Output" type="Label" parent="TabSelection/Tabs/Inspector/IO/List"]
+margin_top = 133.0
+margin_right = 305.0
+margin_bottom = 158.0
+rect_min_size = Vector2( 0, 25 )
+text = "Outputs"
+valign = 1
+
+[node name="OutputList" type="ScrollContainer" parent="TabSelection/Tabs/Inspector/IO/List"]
+margin_top = 162.0
+margin_right = 305.0
+margin_bottom = 262.0
+rect_min_size = Vector2( 0, 100 )
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabSelection/Tabs/Inspector/IO/List/OutputList"]
 
 [node name="Source" type="HBoxContainer" parent="TabSelection/Tabs/Inspector"]
-margin_top = 568.0
-margin_right = 321.0
-margin_bottom = 598.0
+margin_top = 524.0
+margin_right = 325.0
+margin_bottom = 554.0
 rect_pivot_offset = Vector2( -746.893, 95.2158 )
+alignment = 1
 
 [node name="Label" type="Label" parent="TabSelection/Tabs/Inspector/Source"]
-margin_right = 150.0
+margin_left = 10.0
+margin_right = 160.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 150, 30 )
 custom_styles/normal = SubResource( 11 )
@@ -511,14 +517,15 @@ text = "Source :"
 valign = 1
 
 [node name="Value" type="Button" parent="TabSelection/Tabs/Inspector/Source"]
-margin_left = 154.0
-margin_right = 304.0
+margin_left = 164.0
+margin_right = 314.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 150, 25 )
 focus_mode = 0
-custom_styles/hover = SubResource( 22 )
-custom_styles/pressed = SubResource( 23 )
-custom_styles/normal = SubResource( 24 )
+custom_styles/hover = SubResource( 13 )
+custom_styles/pressed = SubResource( 14 )
+custom_styles/disabled = ExtResource( 8 )
+custom_styles/normal = SubResource( 15 )
 enabled_focus_mode = 0
 text = "package_manager://"
 clip_text = true
@@ -528,6 +535,7 @@ wait_time = 0.25
 
 [connection signal="text_entered" from="TabSelection/Tabs/Inspector/ObjectName" to="TabSelection/Tabs/Inspector" method="_on_ObjectName_text_entered"]
 [connection signal="toggled" from="TabSelection/Tabs/Inspector/Value/Value" to="TabSelection/Tabs/Inspector" method="_on_Value_toggled"]
+[connection signal="text_entered" from="TabSelection/Tabs/Inspector/Legs/Value" to="TabSelection/Tabs/Inspector" method="_on_Legs_text_entered"]
 [connection signal="text_entered" from="TabSelection/Tabs/Inspector/Position_x/Value" to="TabSelection/Tabs/Inspector" method="_on_Position_text_entered"]
 [connection signal="text_entered" from="TabSelection/Tabs/Inspector/Position_y/Value" to="TabSelection/Tabs/Inspector" method="_on_Position_text_entered"]
 [connection signal="timeout" from="TabSelection/Tabs/Inspector/Timer" to="TabSelection/Tabs/Inspector" method="_on_refresh"]

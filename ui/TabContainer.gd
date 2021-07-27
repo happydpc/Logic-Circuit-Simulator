@@ -1,7 +1,7 @@
 extends TabContainer
 
 func _ready() -> void:
-	get_node("../AcceptDialog").get_child(0).connect("pressed",self,"_on_AcceptDialog_cancelled")
+	var _s1 := get_node("../AcceptDialog").get_child(0).connect("pressed",self,"_on_AcceptDialog_cancelled")
 	OS.set_window_title("Logic Circuit Simulator - "+self.get_child(current_tab).name)
 
 func _on_TabContainer_tab_changed(tab) -> void:

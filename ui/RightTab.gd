@@ -22,9 +22,8 @@ func show_ui() -> void:
 		get_node("../../TabContainer").margin_right=-390
 		get_node("Tabs").visible=true
 		get_node("Tabs/Header").text=active_tab.name
+		for iter in get_node("Tabs").get_children():
+			iter.visible= iter.name =="Header" or iter.name ==active_tab.name
 	else:
 		get_node("Tabs").visible=false
 		get_node("../../TabContainer").margin_right=-60
-
-
-
