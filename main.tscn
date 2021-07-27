@@ -11,7 +11,7 @@
 [ext_resource path="res://assets/themes/button_hover.tres" type="StyleBox" id=9]
 [ext_resource path="res://assets/themes/button_pressed.tres" type="StyleBox" id=10]
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 40.0
 content_margin_right = 40.0
 content_margin_top = 8.0
@@ -22,7 +22,7 @@ border_width_top = 2
 border_width_right = 1
 border_color = Color( 0.129412, 0.145098, 0.168627, 1 )
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=2]
 content_margin_left = 30.0
 content_margin_right = 30.0
 content_margin_top = 8.0
@@ -33,7 +33,7 @@ border_width_top = 1
 border_width_right = 1
 border_color = Color( 0.129412, 0.145098, 0.168627, 1 )
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=3]
 content_margin_left = 30.0
 content_margin_right = 30.0
 content_margin_top = 8.0
@@ -44,16 +44,16 @@ border_width_top = 6
 border_width_right = 1
 border_color = Color( 0.129412, 0.145098, 0.168627, 1 )
 
-[sub_resource type="StyleBoxEmpty" id=5]
+[sub_resource type="StyleBoxEmpty" id=4]
 
-[sub_resource type="StyleBoxFlat" id=6]
+[sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.156863, 0.172549, 0.203922, 1 )
 border_width_top = 25
 border_color = Color( 1, 1, 1, 1 )
 corner_detail = 20
 expand_margin_top = 20.0
 
-[sub_resource type="Theme" id=7]
+[sub_resource type="Theme" id=6]
 Dialogs/constants/button_margin = 32
 Dialogs/constants/margin = 8
 WindowDialog/colors/title_color = Color( 0, 0, 0, 1 )
@@ -64,7 +64,7 @@ WindowDialog/constants/title_height = 20
 WindowDialog/fonts/title_font = null
 WindowDialog/icons/close = null
 WindowDialog/icons/close_highlight = null
-WindowDialog/styles/panel = SubResource( 6 )
+WindowDialog/styles/panel = SubResource( 5 )
 
 [node name="main" type="CanvasLayer"]
 
@@ -81,10 +81,10 @@ margin_right = -62.0
 margin_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_styles/tab_fg = SubResource( 2 )
-custom_styles/tab_disabled = SubResource( 3 )
-custom_styles/tab_bg = SubResource( 4 )
-custom_styles/panel = SubResource( 5 )
+custom_styles/tab_fg = SubResource( 1 )
+custom_styles/tab_disabled = SubResource( 2 )
+custom_styles/tab_bg = SubResource( 3 )
+custom_styles/panel = SubResource( 4 )
 custom_fonts/font = ExtResource( 7 )
 custom_constants/side_margin = 350
 tab_align = 0
@@ -140,7 +140,7 @@ margin_left = -155.0
 margin_top = -81.0
 margin_right = 156.0
 margin_bottom = 75.0
-theme = SubResource( 7 )
+theme = SubResource( 6 )
 popup_exclusive = true
 window_title = "New Tab"
 dialog_text = "Choose a scene type"
@@ -153,25 +153,24 @@ __meta__ = {
 margin_left = 8.0
 margin_top = 29.0
 margin_right = 303.0
-margin_bottom = 119.0
+margin_bottom = 113.0
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LineEdit" type="LineEdit" parent="AcceptDialog/VBoxContainer"]
-margin_top = 3.0
 margin_right = 295.0
-margin_bottom = 25.0
+margin_bottom = 22.0
 custom_styles/normal = ExtResource( 1 )
 clear_button_enabled = true
 placeholder_text = "Tab Name"
 caret_blink = true
 
 [node name="OptionButton" type="OptionButton" parent="AcceptDialog/VBoxContainer"]
-margin_top = 29.0
+margin_top = 26.0
 margin_right = 295.0
-margin_bottom = 51.0
+margin_bottom = 48.0
 custom_styles/hover = ExtResource( 9 )
 custom_styles/pressed = ExtResource( 10 )
 custom_styles/disabled = ExtResource( 8 )
@@ -184,9 +183,9 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="AcceptDialog/VBoxContainer"]
-margin_top = 55.0
+margin_top = 52.0
 margin_right = 295.0
-margin_bottom = 86.0
+margin_bottom = 83.0
 
 [node name="InputText" type="Label" parent="AcceptDialog/VBoxContainer/HBoxContainer"]
 margin_top = 5.0

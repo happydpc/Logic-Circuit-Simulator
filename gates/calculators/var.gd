@@ -1,4 +1,5 @@
 extends GraphNode
+
 const gate_type = "VAR"
 var id:=0
 var tag:=""

@@ -2,6 +2,7 @@ extends TabContainer
 
 func _ready() -> void:
 	get_node("../AcceptDialog").get_child(0).connect("pressed",self,"_on_AcceptDialog_cancelled")
+	OS.set_window_title("Logic Circuit Simulator - "+self.get_child(current_tab).name)
 
 func _on_TabContainer_tab_changed(tab) -> void:
 	if self.get_tab_control(tab).name=="+":
@@ -12,10 +13,8 @@ func _on_TabContainer_tab_changed(tab) -> void:
 		get_node("../AcceptDialog/VBoxContainer/HBoxContainer").visible=get_node("../AcceptDialog/VBoxContainer/OptionButton").selected==1
 		get_node("../AcceptDialog").popup()
 	else:
+		OS.set_window_title("Logic Circuit Simulator - "+self.get_child(tab).name)
 		get_node("../BottomTab/HBoxContainer/CurrentTab").text=self.get_child(tab).name
-
-
-
 
 func _on_AcceptDialog_confirmed() -> void:
 	if get_node("../AcceptDialog/VBoxContainer/LineEdit").text==null or get_node("../AcceptDialog/VBoxContainer/LineEdit").text=="" \
@@ -23,13 +22,10 @@ func _on_AcceptDialog_confirmed() -> void:
 		OS.alert("Error while creating a tab. Invalid scene name.", "Error")
 		self.current_tab=self.get_previous_tab()
 	else :
-		pass
-
+		pass # TO DO  Create new tab
 
 func _on_AcceptDialog_cancelled() -> void:
-		self.current_tab=self.get_previous_tab()
+	self.current_tab=self.get_previous_tab()
 	
-
-
-func _on_OptionButton_item_selected(index):
+func _on_OptionButton_item_selected(index) -> void:
 	get_node("../AcceptDialog/VBoxContainer/HBoxContainer").visible=index==1
