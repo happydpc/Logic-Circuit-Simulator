@@ -28,7 +28,7 @@ func set_node(obj) -> void:
 		get_node("Source/Value").disabled=node.gate_type.to_lower()!="prefab"
 		get_node("Interval").visible=node.gate_type.to_lower()=="clock"
 		get_node("IO").visible=true
-		get_node("Legs").visible= !["var","clock","prefab"].has(node.gate_type.to_lower())
+		get_node("Legs").visible= !["var","clock","output","prefab"].has(node.gate_type.to_lower())
 		get_node("Legs/Value").placeholder_text= str(node.legs) if get_node("Legs").visible else ""
 		get_node("Id/Value").text = str(node.id)			
 		get_node("IO/List/InputList").visible=node.gate_type.to_lower()!="var"

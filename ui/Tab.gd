@@ -182,12 +182,11 @@ func port_to_slot(from : String, port : int, is_left : bool) -> int :
 
 
 func _on_Tab_popup_request(position):
-	$CreateNew.rect_position= get_global_mouse_position()
+	$CreateNew.rect_position= position
 	$CreateNew.popup()
 
-
-func _on_ItemList_item_activated(index : int) -> void:
-	var node = GateConstructor.setup_gate(get_node("CreateNew/VBoxContainer/ItemList").get_item_text(index).split(" ")[0],($CreateNew.rect_position+scroll_offset)/zoom)
+func _on_ItemList_item_selected(index):
+	var node = GateConstructor.setup_gate(get_node("CreateNew/ItemList").get_item_text(index).split(" ")[0],($CreateNew.rect_position+scroll_offset)/zoom)
 	self.add_child(node)
 	$CreateNew.visible=false
-	$CreateNew/VBoxContainer/ItemList.unselect_all()
+	$CreateNew/ItemList.unselect_all()

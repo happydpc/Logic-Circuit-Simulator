@@ -1,0 +1,98 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/font/Montserrat-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://gates/calculators/output.gd" type="Script" id=2]
+[ext_resource path="res://assets/Icons/new/port.png" type="Texture" id=3]
+[ext_resource path="res://assets/Icons/new/on.png" type="Texture" id=4]
+[ext_resource path="res://assets/Icons/new/on_disabled.png" type="Texture" id=5]
+[ext_resource path="res://assets/Icons/new/off.png" type="Texture" id=6]
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.156863, 0.172549, 0.203922, 1 )
+border_width_left = 6
+border_width_top = 20
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 13
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.156863, 0.172549, 0.203922, 1 )
+border_width_left = 6
+border_width_top = 20
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 20
+
+[sub_resource type="DynamicFont" id=3]
+outline_color = Color( 0.156863, 0.172549, 0.203922, 1 )
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+content_margin_right = 26.0
+bg_color = Color( 0.317647, 0.333333, 0.356863, 1 )
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id=5]
+content_margin_left = 0.0
+content_margin_right = 26.0
+bg_color = Color( 0.317647, 0.333333, 0.356863, 1 )
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id=6]
+content_margin_right = 26.0
+bg_color = Color( 0.811765, 0.823529, 0.847059, 0 )
+
+[node name="output" type="GraphNode"]
+margin_right = 100.0
+margin_bottom = 117.0
+mouse_filter = 1
+custom_icons/port = ExtResource( 3 )
+custom_styles/frame = SubResource( 7 )
+custom_styles/selectedframe = SubResource( 8 )
+custom_fonts/title_font = SubResource( 3 )
+custom_colors/title_color = Color( 0.156863, 0.172549, 0.203922, 1 )
+custom_constants/separation = 0
+title = "        output"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckButton" type="CheckButton" parent="."]
+margin_left = 6.0
+margin_top = 20.0
+margin_right = 94.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 50, 40 )
+focus_mode = 0
+mouse_filter = 1
+custom_icons/off = ExtResource( 6 )
+custom_icons/on_disabled = ExtResource( 5 )
+custom_icons/on = ExtResource( 4 )
+custom_icons/off_disabled = ExtResource( 5 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/hover_pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+button_mask = 0
+enabled_focus_mode = 0
+align = 1
+expand_icon = true

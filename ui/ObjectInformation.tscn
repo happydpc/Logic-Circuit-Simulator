@@ -104,11 +104,11 @@ __meta__ = {
 
 [node name="Type Info" type="HBoxContainer" parent="Panel/VBoxContainer"]
 margin_right = 278.0
-margin_bottom = 16.0
+margin_bottom = 21.0
 
 [node name="Text" type="Label" parent="Panel/VBoxContainer/Type Info"]
 margin_right = 135.0
-margin_bottom = 16.0
+margin_bottom = 21.0
 rect_min_size = Vector2( 135, 16 )
 text = "Type : "
 valign = 1
@@ -117,7 +117,7 @@ clip_text = true
 [node name="Value" type="Label" parent="Panel/VBoxContainer/Type Info"]
 margin_left = 139.0
 margin_right = 274.0
-margin_bottom = 16.0
+margin_bottom = 21.0
 rect_min_size = Vector2( 135, 16 )
 custom_styles/normal = SubResource( 4 )
 text = "AND Gate"
@@ -126,13 +126,13 @@ valign = 1
 clip_text = true
 
 [node name="Position" type="HBoxContainer" parent="Panel/VBoxContainer"]
-margin_top = 19.0
+margin_top = 24.0
 margin_right = 278.0
-margin_bottom = 35.0
+margin_bottom = 45.0
 
 [node name="Text" type="Label" parent="Panel/VBoxContainer/Position"]
 margin_right = 135.0
-margin_bottom = 16.0
+margin_bottom = 21.0
 rect_min_size = Vector2( 135, 16 )
 text = "Position : "
 valign = 1
@@ -141,7 +141,7 @@ clip_text = true
 [node name="Property" type="Label" parent="Panel/VBoxContainer/Position"]
 margin_left = 139.0
 margin_right = 163.0
-margin_bottom = 16.0
+margin_bottom = 21.0
 rect_min_size = Vector2( 24, 16 )
 custom_styles/normal = SubResource( 4 )
 text = "x"
@@ -152,7 +152,7 @@ clip_text = true
 [node name="Value" type="LineEdit" parent="Panel/VBoxContainer/Position"]
 margin_left = 167.0
 margin_right = 272.0
-margin_bottom = 16.0
+margin_bottom = 21.0
 rect_min_size = Vector2( 105, 16 )
 custom_styles/read_only = SubResource( 5 )
 custom_styles/normal = SubResource( 6 )
@@ -160,13 +160,13 @@ align = 1
 caret_blink = true
 
 [node name="Position2" type="HBoxContainer" parent="Panel/VBoxContainer"]
-margin_top = 38.0
+margin_top = 48.0
 margin_right = 278.0
-margin_bottom = 54.0
+margin_bottom = 69.0
 
 [node name="Text" type="Label" parent="Panel/VBoxContainer/Position2"]
 margin_right = 135.0
-margin_bottom = 16.0
+margin_bottom = 21.0
 rect_min_size = Vector2( 135, 16 )
 valign = 1
 clip_text = true
@@ -174,7 +174,7 @@ clip_text = true
 [node name="Property" type="Label" parent="Panel/VBoxContainer/Position2"]
 margin_left = 139.0
 margin_right = 163.0
-margin_bottom = 16.0
+margin_bottom = 21.0
 rect_min_size = Vector2( 24, 16 )
 custom_styles/normal = SubResource( 4 )
 text = "y"
@@ -185,7 +185,7 @@ clip_text = true
 [node name="Value" type="LineEdit" parent="Panel/VBoxContainer/Position2"]
 margin_left = 167.0
 margin_right = 272.0
-margin_bottom = 16.0
+margin_bottom = 21.0
 rect_min_size = Vector2( 105, 16 )
 custom_styles/read_only = SubResource( 5 )
 custom_styles/normal = SubResource( 6 )
@@ -193,13 +193,13 @@ align = 1
 caret_blink = true
 
 [node name="Rotation" type="HBoxContainer" parent="Panel/VBoxContainer"]
-margin_top = 57.0
+margin_top = 72.0
 margin_right = 278.0
-margin_bottom = 73.0
+margin_bottom = 94.0
 
 [node name="Text" type="Label" parent="Panel/VBoxContainer/Rotation"]
 margin_right = 135.0
-margin_bottom = 16.0
+margin_bottom = 21.0
 rect_min_size = Vector2( 135, 16 )
 text = "Rotation :"
 valign = 1
@@ -208,7 +208,7 @@ clip_text = true
 [node name="OptionButton" type="OptionButton" parent="Panel/VBoxContainer/Rotation"]
 margin_left = 139.0
 margin_right = 274.0
-margin_bottom = 16.0
+margin_bottom = 22.0
 rect_min_size = Vector2( 135, 0 )
 focus_mode = 0
 custom_styles/hover = ExtResource( 2 )

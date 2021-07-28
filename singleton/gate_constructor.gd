@@ -2,7 +2,7 @@ extends Node
 
 var base_gate=preload("res://gates/gate.tscn")
 var gates={
-	#"Output":preload("res://base nodes/output_gate.tscn"),
+	"OUTPUT":preload("res://gates/calculators/output.tscn"),
 	#"Label":preload("res://base nodes/Label.tscn"),
 	"VAR":preload("res://gates/calculators/var.tscn"),
 #	#"Clock":preload("res://base nodes/clock.tscn"),
@@ -20,7 +20,7 @@ func _ready():
 
 func setup_gate(gate_type:String, offset : Vector2 = Vector2(0,0)):
 	var node
-	if gate_type=="VAR" or gate_type=="Clock" or gate_type=="Label" or gate_type=="Output":
+	if gate_type=="VAR" or gate_type=="Clock" or gate_type=="Label" or gate_type=="OUTPUT":
 		node=gates[gate_type].instance()
 	else:
 		node=base_gate.instance()
